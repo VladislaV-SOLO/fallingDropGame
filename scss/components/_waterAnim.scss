@@ -1,0 +1,50 @@
+// body {
+//     display: flex;
+//     width: 100vw;
+//     height: 100vh;
+//     align-items: center;
+//     justify-content: center;
+//   }
+  
+  .Ocean {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    width: 600px;
+    background-color: #B3E5FC;
+    overflow: hidden;
+
+    @include respond-to('middle') {
+        width: 800px;
+    }
+    @include respond-to('mobile') {
+        max-width: 480px;
+    }
+  }
+  
+  .Wave {
+    width: 1200px;
+    height: 106px;
+    animation-name: swell;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    fill: #4FC3F7;
+
+    @include respond-to('middle') {
+        width: 1250px;
+    }
+    @include respond-to('mobile') {
+
+    }
+  }
+  
+  @keyframes swell {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }

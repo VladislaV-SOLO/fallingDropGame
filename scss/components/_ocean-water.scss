@@ -1,0 +1,35 @@
+.game__content {
+    &-ocean {
+        width: 600px;
+        height: 450px;
+        display: flex;
+        align-items: flex-end;
+
+        @include respond-to('middle') {
+            width: 100%;
+            height: auto;
+        }
+        @include respond-to('mobile') {
+            width: 100%;
+            height: auto;
+        }
+    }
+    &-water {
+        position: absolute;
+
+        @include respond-to('middle') {
+            width: 100%;
+        }
+        @include respond-to('mobile') {
+            width: 100%;
+        }
+    }
+
+    @include respond-to('middle') {
+        width: 100%;
+    }
+    @include respond-to('mobile') {
+        width: 100%;
+
+    }
+}

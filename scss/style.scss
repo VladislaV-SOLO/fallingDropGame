@@ -1,0 +1,29 @@
+@import url('https://fonts.google.com/share?selection.family=Gupter:wght@400;500;700');
+@import "./constans/font-size";
+@import "./constans/breakpoints";
+@import "./constans/global-variable";
+@import "./mixin/adaptive";
+@import "./components/ocean-water";
+@import "./components/img";
+@import "./components/score";
+@import "./components/calculator";
+@import "./components/beach";
+@import "./components/drop";
+@import "./components/startBtn";
+@import "./components/waterAnim";
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gupter', serif;
+    font-weight: 400;
+}
+
+.game {
+    height: 100vh; 
+    display: none;  
+    // margin-top: 50px;
+    background: linear-gradient(to bottom right, $btn-color-pink, $bg-color-blue);
+}

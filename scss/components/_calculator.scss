@@ -1,0 +1,134 @@
+.game__content {
+    width: 1000px;
+    height: 450px;
+    display: flex;
+
+    &-counter{
+        width: 40%;
+        height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        background: linear-gradient($input-color, $btn-color-whitesmoke);
+
+        @include respond-to('middle') {
+            display: flex;
+            width: 100%;
+        }
+        @include respond-to('mobile') {
+            width: 100%;
+        }
+    }
+
+    &-calc {
+        width: 300px;
+        border: 2px solid rgb(226, 164, 92);
+        box-shadow: 0px 5px 10px 2px $input-color;
+        border-radius: 10px;
+        padding: 5px;
+        background: linear-gradient(to bottom right, $bg-color-blue, $btn-color-pink);
+
+        @include respond-to('middle') {
+            width: 470px;
+        }
+        @include respond-to('mobile') {
+            max-width: 350px;
+        }
+    }
+
+    &-input {
+        width: 100%;
+        height: 40px;
+        color: $text-color;
+        background: linear-gradient(to bottom right, $btn-color-whitesmoke, $input-color);
+        border: 1px solid antiquewhite;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    &-calcBtn {
+        width: 100%;
+        height: 260px;
+    }
+
+    @include respond-to('middle') {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        
+    }
+    @include respond-to('mobile') {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.calcBtn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    &-num-1 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    &-num-2 {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+    &-num-3 {
+        grid-area: 1 / 3 / 2 / 4;
+    }
+    &-num-4 {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    &-num-5 {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    &-num-6 {
+        grid-area: 2 / 3 / 3 / 4;
+    }
+    &-num-7 {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+    &-num-8 {
+        grid-area: 3 / 2 / 4 / 3;
+    }
+    &-num-9 {
+        grid-area: 3 / 3 / 4 / 4;
+    }
+    &-num-0 {
+    grid-area: 4 / 1 / 5 / 2; 
+    }
+    &_clear {
+        grid-area: 1 / 4 / 3 / 5; 
+    }
+    &_backspace {
+        grid-area: 4 / 2 / 5 / 4; 
+    }
+    &_enter {
+        grid-area: 3 / 4 / 5 / 5; 
+    }
+
+    @include respond-to('middle') {
+        max-width: 100%;
+    }
+    @include respond-to('mobile') {
+        max-width: 100%;
+    }
+}
+
+.btn {
+    border: 1px solid $btn-color-black;
+    border-radius: 7px;
+    margin: 2px;
+    color: $text-color;
+    background: linear-gradient(to bottom right, $btn-color-pink, $btn-color-whitesmoke);
+    font-size: $text-large;
+    &:active {
+        transform: scale(0.9);
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
