@@ -245,10 +245,9 @@
   width: 60px;
   height: 60px;
   background: linear-gradient(to bottom right, rgb(64, 114, 223), rgb(123, 229, 255));
-  border-radius: 0 30px 30px 30px;
-  transform: rotate(45deg) skewY(0deg);
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  animation: drop 8s ease-in infinite;
+  border-radius: 50%;
+  transform: translateY(350px);
+  animation: dropAnimation 12s linear;
   color: black;
   font-size: 1.3rem;
   display: flex;
@@ -256,34 +255,18 @@
   align-items: center;
 }
 
-@-webkit-keyframes drop {
+@keyframes dropAnimation {
   0% {
-    top: 0;
-    border-radius: 50px;
-    transform: rotate(45deg) skewY(0deg);
-  }
-  50% {
-    top: 10px;
-    border-radius: 5px 25px 25px 25px;
-  }
-  90% {
-    top: 350px;
-    border-radius: 5px 25px 25px 25px;
-    transform: rotate(40deg) skewY(10deg);
-  }
-  99% {
-    top: 335px;
-    border-radius: 10px 25px 25px 25px;
-    transform: rotate(0deg) skewY(0deg) scale(0.1);
+    transform: translateY(-100%);
   }
   100% {
-    top: 335px;
-    border-radius: 10px 25px 25px 25px;
-    transform: rotate(0deg) skewY(0deg) scale(3, 0.3);
+    transform: translateY(350px);
   }
 }
 .container {
   height: 100vh;
+  margin-bottom: 50px;
+  display: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -294,6 +277,7 @@
   border-radius: 40px;
   background: linear-gradient(to bottom right, blue, pink);
   box-shadow: 0px 0px 10px 7px rgb(123, 229, 255);
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -359,12 +343,12 @@
   }
 }
 
-.container {
+.containerStars {
   position: relative;
   overflow: hidden;
   background: #000 url("https://hsto.org/files/ad0/ac2/e32/ad0ac2e32be44930ac76e212245e2e67.png");
 }
-.container body {
+.containerStars body {
   margin: 0;
 }
 
@@ -425,23 +409,23 @@
     opacity: 1;
   }
 }
-.Ocean {
+.ocean {
   width: 600px;
   background-color: #B3E5FC;
   overflow: hidden;
 }
 @media screen and (max-width: 768px) {
-  .Ocean {
+  .ocean {
     width: 800px;
   }
 }
 @media screen and (max-width: 480px) {
-  .Ocean {
+  .ocean {
     max-width: 480px;
   }
 }
 
-.Wave {
+.wave {
   width: 1200px;
   height: 106px;
   animation-name: swell;
@@ -452,7 +436,7 @@
   fill: #4FC3F7;
 }
 @media screen and (max-width: 768px) {
-  .Wave {
+  .wave {
     width: 1250px;
   }
 }
@@ -464,6 +448,99 @@
     transform: translateX(0%);
   }
 }
+.container {
+  height: 100vh;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-gameOver {
+  width: 500px;
+  height: 300px;
+  border-radius: 40px;
+  background: linear-gradient(to bottom right, blue, pink);
+  box-shadow: 0px 0px 10px 7px rgb(123, 229, 255);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  .container-gameOver {
+    width: 380px;
+    max-width: 768px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container-gameOver {
+    width: 250px;
+    max-width: 450px;
+    height: 150px;
+  }
+}
+.container-paragrafGameOver {
+  font-size: 2.5rem;
+}
+@media screen and (max-width: 768px) {
+  .container-paragrafGameOver {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container-paragrafGameOver {
+    font-size: 1.5rem;
+  }
+}
+.container-btnGameOver {
+  width: 250px;
+  height: 80px;
+  border-radius: 30px;
+  background: linear-gradient(to bottom right, pink, blue);
+  border: 1px solid rgb(123, 229, 255);
+  box-shadow: 0px 0px 20px 2px rgb(123, 229, 255);
+  font-size: 2.5rem;
+  color: black;
+}
+.container-btnGameOver:active {
+  transform: scale(0.9);
+}
+.container-btnGameOver:hover {
+  cursor: pointer;
+  color: aqua;
+}
+@media screen and (max-width: 768px) {
+  .container-btnGameOver {
+    width: 180px;
+    max-width: 768px;
+    height: 60px;
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container-btnGameOver {
+    width: 150px;
+    max-width: 450px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 768px;
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 450px;
+    height: 100vh;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
