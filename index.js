@@ -4,17 +4,17 @@ const enterBtn = window.document.getElementById('enter');
 const screenInput = window.document.querySelector('.game__content-input');
 const calcBtn = document.querySelector('.game__content-calcBtn');
 const score = window.document.getElementById('span-score');
+const scoreGameOver = window.document.getElementById('span-scoreGameOver');
 const oceanCreateDrop = document.querySelector('.game__content-createDrop');
 const ocean = document.querySelector('.ocean');
 const startBtn = document.querySelector('.container-btnStart');
-const btnPlayAgain = document.querySelector('.container-btnGameOver');
-const btnMainMenu = document.querySelector('.container-btnMainMenu');
+const btnPlayAgain = document.querySelector('.case-btnGameOver');
+const btnMainMenu = document.querySelector('.case-btnMainMenu');
 const containerStart = document.querySelector('.containerStartGame');
 const containerGameOver = document.querySelector('.containerGameOver');
 const containerGameDrop = document.querySelector('.game');
 const imgContent = document.querySelector('.game__content-img')
-
-
+const wave = document.querySelector('.wave');
 
 
 
@@ -23,8 +23,7 @@ function onClickNum(event) {
     if (event.target.classList.contains('num')) {
         const pressNum = event.target.textContent
         screenInput.value += pressNum
-    } 
-}
+}}
 
 clearBtn.addEventListener('click', function(event) {
     screenInput.value = ''
@@ -61,32 +60,49 @@ startBtn.addEventListener('click', function(event) {
     containerStart.style.display = 'none'
     containerGameDrop.style.display = 'block'
     containerGameOver.style.display = 'none'
-    const drop = createDrop()
-
+    wave.style.height = '106px'
+    // const drop = createDrop()
+    setTimeout(() => {
+        createDrop()
+    }, 0)
+    // setT()
     setInterval(() => {
         const drop = createDrop()  
     }, 8000)
 
+
     setInterval(waterUp, 1000);
 });
+
+// function setT() {
+//     let str = setInterval(() => {
+//         createDrop()  
+//     }, 8000)
+// }
+// clearInterval(setT)
 
 btnPlayAgain.addEventListener('click', function(event) {
     containerGameOver.style.display = 'none'
     containerStart.style.display = 'none'
     containerGameDrop.style.display = 'block'
-    const drop = createDrop()
+    wave.style.height = '106px'
+    // const drop = createDrop()
+    score.textContent = ""
 
-    setInterval(() => {
-        const drop = createDrop()  
-    }, 8000)
+    // setInterval(() => {
+    //     const drop = createDrop()  
+    // }, 8000)
 
-    setInterval(waterUp, 1000);
+    // setInterval(waterUp, 1000);
 });
 
 btnMainMenu.addEventListener('click', function(event) {
     containerGameOver.style.display = 'none'
     containerGameDrop.style.display = 'none'
     containerStart.style.display = 'block'
+    containerStart.style.display = 'flex'
+    wave.style.height = '106px'
+    score.textContent = ""
 });
 
 
@@ -103,15 +119,12 @@ function randomOperation() {
     else if (oper == 4) {return divide}
 }
 
-
     // const rootDiv = document.getElementsByClassName("game__content-img")
-
 const currentTask = {
     firstNum: '',
     operation: '',
     secondNum: '',
 }
-
 
 function createDrop(array) {
     // const rootDiv = document.getElementsByClassName("game__content-img")
@@ -146,7 +159,6 @@ function createDrop(array) {
     drop.style.left = x +'px'
     oceanCreateDrop.append(drop)
 
-
     // currentTask.firstNum = randomExpression(1, 10);
     // currentTask.secondNum = randomExpression(1, 10);
     // console.log(currentTask.firstNum)
@@ -155,9 +167,7 @@ function createDrop(array) {
     firstNum.innerText = firstNums
     operation.innerText = operations
     secondNum.innerText = secondNums
-
-
-    
+   
 const result = resultDropEquations()
 
 function resultDropEquations() {
@@ -208,7 +218,6 @@ function getRandomIntInclusive(min, max) {
 
 
 
-
 // let trueResult = ''; // возможно не надо
 // function checkResult() {
 
@@ -241,53 +250,49 @@ function getRandomIntInclusive(min, max) {
 
 // enterBtn.addEventListener('click', checkResult)
 
-const wave = document.querySelector('.wave')
+// const wave = document.querySelector('.wave')
+
+// const positionCircle = drop.getBoundingClientRect();
+// const positionWave = wave.getBoundingClientRect();
+
 // вода поднимается
 function waterUp() {
     const drop = document.querySelector('.drop');
-    const wave = document.querySelector('.wave')
+    // const wave = document.querySelector('.wave')
 
 console.log('Проверка');
 
-        const positionCircle = drop.getBoundingClientRect();
-        const positionWave = wave.getBoundingClientRect();
+    const positionCircle = drop.getBoundingClientRect();
+    const positionWave = wave.getBoundingClientRect();
 
-        if (positionCircle.y + positionCircle.height >= positionWave.y) {
-            console.log('WaterUp');
-            wave.style.height = positionWave.height + 40 + 'px';
-            drop.remove();
-            // createDrop()
-        } 
-        if (positionWave.y <= positionWave.height ) {
-            console.log('gameeeeee overrrrrr');
-
-            gameOver()
-        }
+    if (positionCircle.y + positionCircle.height >= positionWave.y) {
+        // console.log('WaterUp');
+        wave.style.height = positionWave.height + 40 + 'px';
+        drop.remove();
+        // createDrop()
+        console.log(positionWave.height);
+            
+    } 
+    if (positionWave.y <= positionWave.height ) {
+        // console.log('gameeeeee overrrrrr');
+        gameOver()
+    }
 }
 
-const intervalPosition = setInterval(waterUp, 1000);
+// const intervalPosition = setInterval(waterUp, 1000);
 
 
 function gameOver() {
     console.log('game over');
-    // clearInterval(intervalPosition);
     containerGameDrop.style.display = 'none';
     containerGameOver.style.display = 'block'
+        containerGameOver.style.display = 'flex'
+    scoreGameOver.textContent = score.textContent
     // // clearInterval(intervalPosition); - очищает ф-ию setInterval(waterUp, 100); - чтобы она 
     // // не проверяла позицию капли и волны + чтобы отключился звук(когда волна поднимается)
-    clearInterval(intervalPosition);
-    // gamePage.style.display = 'none';
-    // gameOverGame.style.display = 'flex';
-    // rightAnswer.textContent = rightAnswer.textContent + trueResultCount;
-    // wrongAnswer.textContent = wrongAnswer.textContent + wrongResultCount;
-    // scoreGame.textContent += score.textContent;
-    // audioSea.pause();
+    clearInterval(waterUp);
+    // clearTimeout()
 }
-
-
-
-
-
 
 
 
@@ -311,13 +316,13 @@ document.getElementById('fullScreen').addEventListener('click', function() {
 
 // Music // Music // Music // Music // Music
 let music = new Audio();
-      music.src = "./sound/affection-core-c152-nostalgic-memories.mp3";
+    music.src = "./sound/affection-core-c152-nostalgic-memories.mp3";
 
-      document.getElementById('sound').onclick = function() {
-      if (music.paused == true) {
+    document.getElementById('sound').onclick = function() {
+    if (music.paused == true) {
         music.play();
-      }
-       else {
-        music.pause();
-      }
     }
+    else {
+        music.pause();
+    }
+}

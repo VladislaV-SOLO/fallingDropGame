@@ -265,7 +265,6 @@
 }
 .container {
   height: 100vh;
-  margin-bottom: 50px;
   display: none;
   display: flex;
   align-items: center;
@@ -448,14 +447,14 @@
     transform: translateX(0%);
   }
 }
-.container {
+.case {
   height: 100vh;
-  margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
 }
-.container-gameOver {
+.case-gameOver {
   width: 500px;
   height: 300px;
   border-radius: 40px;
@@ -469,33 +468,33 @@
   z-index: 1;
 }
 @media screen and (max-width: 768px) {
-  .container-gameOver {
+  .case-gameOver {
     width: 380px;
     max-width: 768px;
     height: 200px;
   }
 }
 @media screen and (max-width: 480px) {
-  .container-gameOver {
+  .case-gameOver {
     width: 250px;
     max-width: 450px;
     height: 150px;
   }
 }
-.container-paragrafGameOver {
+.case-paragrafGameOver {
   font-size: 2.5rem;
 }
 @media screen and (max-width: 768px) {
-  .container-paragrafGameOver {
+  .case-paragrafGameOver {
     font-size: 2rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .container-paragrafGameOver {
+  .case-paragrafGameOver {
     font-size: 1.5rem;
   }
 }
-.container-btnGameOver {
+.case-btnGameOver {
   width: 250px;
   height: 80px;
   border-radius: 30px;
@@ -505,15 +504,15 @@
   font-size: 2.5rem;
   color: black;
 }
-.container-btnGameOver:active {
+.case-btnGameOver:active {
   transform: scale(0.9);
 }
-.container-btnGameOver:hover {
+.case-btnGameOver:hover {
   cursor: pointer;
   color: aqua;
 }
 @media screen and (max-width: 768px) {
-  .container-btnGameOver {
+  .case-btnGameOver {
     width: 180px;
     max-width: 768px;
     height: 60px;
@@ -521,7 +520,7 @@
   }
 }
 @media screen and (max-width: 480px) {
-  .container-btnGameOver {
+  .case-btnGameOver {
     width: 150px;
     max-width: 450px;
     height: 50px;
@@ -529,13 +528,13 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .container {
+  .case {
     max-width: 768px;
     height: 100vh;
   }
 }
 @media screen and (max-width: 480px) {
-  .container {
+  .case {
     max-width: 450px;
     height: 100vh;
   }
