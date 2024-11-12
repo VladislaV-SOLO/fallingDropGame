@@ -1,15 +1,4 @@
-// body {
-//     display: flex;
-//     width: 100vw;
-//     height: 100vh;
-//     align-items: center;
-//     justify-content: center;
-//   }
-  
-  .ocean {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: flex-end;
+.ocean {
     width: 600px;
     background-color: #B3E5FC;
     overflow: hidden;
@@ -20,9 +9,9 @@
     @include respond-to('mobile') {
         max-width: 480px;
     }
-  }
+}
   
-  .wave {
+.wave {
     width: 1200px;
     height: 106px;
     animation-name: swell;
@@ -36,15 +25,14 @@
         width: 1250px;
     }
     @include respond-to('mobile') {
-
-    }
-  }
+   }
+}
   
-  @keyframes swell {
+@keyframes swell {
     0% {
       transform: translateX(-50%);
     }
     100% {
       transform: translateX(0%);
     }
-  }
+}

@@ -8,14 +8,10 @@
     border-radius: 50%;
     transform: translateY(350px);
     animation: dropAnimation 12s linear;
-    // box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.2);
-    // animation: drop 8s ease-in infinite;
     color: $text-color;
     font-size: 1.3rem;
-    // animation-fill-mode: forwards;
     display: flex;
     justify-content: space-around;
-    // flex-direction: column;
     align-items: center;
 }
 
@@ -27,4 +23,3 @@
     transform: translateY(350px);
   }
 }
-  
