@@ -1,12 +1,9 @@
 .container {
-  // position: absolute;
     height: 100vh;
-    // margin-bottom: 50px;
     display: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    // display: none;
 
     &-start {
         width: 500px;
@@ -22,8 +19,7 @@
         @include respond-to('middle') {
             width: 380px;
             max-width: 768px;
-            height: 200px;
-            
+            height: 200px; 
         }
         @include respond-to('mobile') {
             width: 250px;

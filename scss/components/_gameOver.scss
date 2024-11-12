@@ -1,6 +1,5 @@
 .case {
     height: 100vh;
-    // margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +21,6 @@
             width: 380px;
             max-width: 768px;
             height: 200px;
-            
         }
         @include respond-to('mobile') {
             width: 250px;

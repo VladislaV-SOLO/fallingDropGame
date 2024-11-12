@@ -18,7 +18,6 @@ const wave = document.querySelector('.wave');
 
 
 
-
 function onClickNum(event) {
     if (event.target.classList.contains('num')) {
         const pressNum = event.target.textContent
@@ -55,45 +54,30 @@ calcBtn.addEventListener('click', function(event) {
 })
 
 
-/////////////////////////////////////////////////////
 startBtn.addEventListener('click', function(event) {
     containerStart.style.display = 'none'
     containerGameDrop.style.display = 'block'
     containerGameOver.style.display = 'none'
     wave.style.height = '106px'
-    // const drop = createDrop()
+
     setTimeout(() => {
         createDrop()
     }, 0)
-    // setT()
+
     setInterval(() => {
         const drop = createDrop()  
     }, 8000)
 
-
     setInterval(waterUp, 1000);
 });
 
-// function setT() {
-//     let str = setInterval(() => {
-//         createDrop()  
-//     }, 8000)
-// }
-// clearInterval(setT)
 
 btnPlayAgain.addEventListener('click', function(event) {
     containerGameOver.style.display = 'none'
     containerStart.style.display = 'none'
     containerGameDrop.style.display = 'block'
     wave.style.height = '106px'
-    // const drop = createDrop()
     score.textContent = ""
-
-    // setInterval(() => {
-    //     const drop = createDrop()  
-    // }, 8000)
-
-    // setInterval(waterUp, 1000);
 });
 
 btnMainMenu.addEventListener('click', function(event) {
@@ -106,7 +90,6 @@ btnMainMenu.addEventListener('click', function(event) {
 });
 
 
- // Рандомный оператор
 function randomOperation() {
     sum = '+';
     subtract = '-';
@@ -119,7 +102,6 @@ function randomOperation() {
     else if (oper == 4) {return divide}
 }
 
-    // const rootDiv = document.getElementsByClassName("game__content-img")
 const currentTask = {
     firstNum: '',
     operation: '',
@@ -127,7 +109,6 @@ const currentTask = {
 }
 
 function createDrop(array) {
-    // const rootDiv = document.getElementsByClassName("game__content-img")
 
         const drop = document.createElement("div");
         const firstNum = document.createElement("div");
@@ -135,11 +116,6 @@ function createDrop(array) {
         const secondNum = document.createElement("div");
 
         drop.classList.add('drop');
-
-        // firstNum = randomExpression(1, 10);
-        // secondNum = randomExpression(1, 10)
-
-        // rootDiv[0].appendChild(drop)
 
         if (score.textContent < 50) {
             currentTask.operation = randomOperation(1, 2)
@@ -158,10 +134,6 @@ function createDrop(array) {
     drop.style.top = y +'px'
     drop.style.left = x +'px'
     oceanCreateDrop.append(drop)
-
-    // currentTask.firstNum = randomExpression(1, 10);
-    // currentTask.secondNum = randomExpression(1, 10);
-    // console.log(currentTask.firstNum)
 
     const {firstNums,operations, secondNums} = randomExpression(1, 10) // operations
     firstNum.innerText = firstNums
@@ -184,16 +156,14 @@ switch(operations) {
 }
 
     drop.dataset.result = result
-    console.log(result);
-
     drop.appendChild(firstNum)
     drop.appendChild(operation)
     drop.appendChild(secondNum)
-    
+
     return drop
 }
 
-// Функция условие для корректных уравнений
+
 function randomExpression(min, max) {
     let firstNums = getRandomIntInclusive(min, max)
     let secondNums = getRandomIntInclusive(min, max)
@@ -209,7 +179,7 @@ function randomExpression(min, max) {
     return {firstNums, secondNums, operations}
 }
 
-  // Рандомное значение
+
 function getRandomIntInclusive(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
@@ -217,69 +187,21 @@ function getRandomIntInclusive(min, max) {
 }
 
 
-
-// let trueResult = ''; // возможно не надо
-// function checkResult() {
-
-//     let trueResult = '';
-//     if (currentTask.operation === '+') {
-//         trueResult = currentTask.firstNum + currentTask.secondNum
-//     }
-
-//     if (currentTask.operation === '-') {
-//         if (currentTask.secondNum > currentTask.number1) {
-//             trueResult = currentTask.secondNum - currentTask.firstNum
-//         } else {
-//             trueResult = currentTask.firstNum - currentTask.secondNum
-//         }
-//     }
-
-//     if (currentTask.operation === '*') {
-//         trueResult = currentTask.firstNum * currentTask.secondNum
-//     }
-
-//     if (currentTask.operation === '/') {
-//         if (currentTask.secondNum > currentTask.firstNum) {
-//             trueResult = currentTask.secondNum / currentTask.firstNum
-//         } else {
-//             trueResult = currentTask.firstNum / currentTask.secondNum
-//         }
-//     }
-// }
-// checkResult()
-
-// enterBtn.addEventListener('click', checkResult)
-
-// const wave = document.querySelector('.wave')
-
-// const positionCircle = drop.getBoundingClientRect();
-// const positionWave = wave.getBoundingClientRect();
-
-// вода поднимается
 function waterUp() {
     const drop = document.querySelector('.drop');
-    // const wave = document.querySelector('.wave')
-
-console.log('Проверка');
 
     const positionCircle = drop.getBoundingClientRect();
     const positionWave = wave.getBoundingClientRect();
 
     if (positionCircle.y + positionCircle.height >= positionWave.y) {
-        // console.log('WaterUp');
         wave.style.height = positionWave.height + 40 + 'px';
         drop.remove();
-        // createDrop()
         console.log(positionWave.height);
-            
     } 
     if (positionWave.y <= positionWave.height ) {
-        // console.log('gameeeeee overrrrrr');
         gameOver()
     }
 }
-
-// const intervalPosition = setInterval(waterUp, 1000);
 
 
 function gameOver() {
@@ -288,15 +210,10 @@ function gameOver() {
     containerGameOver.style.display = 'block'
         containerGameOver.style.display = 'flex'
     scoreGameOver.textContent = score.textContent
-    // // clearInterval(intervalPosition); - очищает ф-ию setInterval(waterUp, 100); - чтобы она 
-    // // не проверяла позицию капли и волны + чтобы отключился звук(когда волна поднимается)
     clearInterval(waterUp);
-    // clearTimeout()
 }
 
 
-
-  // Функция для переключения между полноэкранным режимом и обычным.
 function toggleFullScreen(elem) {
     if (!document.fullscreenElement) {
         if (elem.requestFullscreen) {
@@ -314,11 +231,11 @@ document.getElementById('fullScreen').addEventListener('click', function() {
 });
 
 
-// Music // Music // Music // Music // Music
+
 let music = new Audio();
     music.src = "./sound/affection-core-c152-nostalgic-memories.mp3";
 
-    document.getElementById('sound').onclick = function() {
+document.getElementById('sound').onclick = function() {
     if (music.paused == true) {
         music.play();
     }
